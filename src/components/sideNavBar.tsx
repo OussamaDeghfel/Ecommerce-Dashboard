@@ -19,7 +19,7 @@ const SideNavbar = () => {
         <div className="space-y-4">
           <span className="font-medium">MENU</span>
           <div>
-            <ul className="space-y-2">
+            <ul className="space-y-4">
               <li className="flex justify-start items-center space-x-2">
                 {" "}
                 <IoGrid /> <span>Overview</span>
