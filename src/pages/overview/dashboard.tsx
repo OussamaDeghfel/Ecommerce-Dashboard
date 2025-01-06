@@ -13,10 +13,10 @@ const Dashboard = () => {
           </button>
         </div>
         <div className="space-y-8">
-          <div className="w-[50%]">
+          <div className="w-[60%]">
             <Performance />
           </div>
-          <div className="w-[50%]">
+          <div className="w-[60%]">
             <Revenue />
           </div>
         </div>
