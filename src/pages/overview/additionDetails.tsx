@@ -1,5 +1,8 @@
 import { FaArrowRight } from "react-icons/fa6";
 import { IoIosNotifications } from "react-icons/io";
+import menuser from "../../assets/menuser.png";
+import menuser2 from "../../assets/menuser2.png";
+import womenuser from "../../assets/womenuser.svg";
 
 const AdditionDetails = () => {
 
@@ -9,15 +12,15 @@ const AdditionDetails = () => {
           name: "David Elson",
           action: "favorited your shop",
           time: "6 mins ago",
-          image: "https://images.pexels.com/photos/30071289/pexels-photo-30071289/free-photo-of-portrait-of-a-bearded-man-outdoors.jpeg", // Replace with actual image URL
-          icon: "❤️", // You can replace this with a heart icon from a library like Heroicons
+          image: menuser, 
+          icon: "❤️", 
         },
         {
           id: 2,
           name: "Kurt Bates",
           action: "purchased your product",
           time: "16 mins ago",
-          image: "https://via.placeholder.com/40",
+          image: menuser2,
           icon: "🛒",
         },
         {
@@ -25,7 +28,7 @@ const AdditionDetails = () => {
           name: "Eddie Lake",
           action: "favorited your shop",
           time: "20 mins ago",
-          image: "https://via.placeholder.com/40",
+          image: menuser,
           icon: "❤️",
         },
         {
@@ -33,7 +36,7 @@ const AdditionDetails = () => {
           name: "Patricia Sanders",
           action: "purchased your product",
           time: "32 mins ago",
-          image: "https://via.placeholder.com/40",
+          image: womenuser,
           icon: "🛒",
         },
       ];
