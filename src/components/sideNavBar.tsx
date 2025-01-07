@@ -1,77 +1,32 @@
-import { AiTwotoneSecurityScan } from "react-icons/ai";
-import { BiSolidMessageSquareDetail } from "react-icons/bi";
-import { BsPersonRolodex } from "react-icons/bs";
-import { FaExchangeAlt } from "react-icons/fa";
-import { ImStatsDots } from "react-icons/im";
-import { IoGrid } from "react-icons/io5";
-import { MdCategory } from "react-icons/md";
-import { RiSettingsLine } from "react-icons/ri";
+import { BsGrid } from "react-icons/bs";
+import { GrGroup } from "react-icons/gr";
+import { IoStatsChartOutline, IoStorefront } from "react-icons/io5";
+import { RiExpandUpDownLine, RiHome4Line, RiMoneyDollarCircleLine } from "react-icons/ri";
+import { TiPin } from "react-icons/ti";
 
-import ownerImage from "../assets/ownerimage.webp";
+// import ownerImage from "../assets/ownerimage.webp";
 
 const SideNavbar = () => {
   return (
-    <div className="flex flex-col w-[15%] h-screen bg-gray-800 text-white p-8">
-      <div className="space-y-8">
-        <div>
-          <p className="font-bold text-lg">StoreTrack</p>
+    <div className="flex flex-col w-[15%] h-screen bg-gray-300 border-r border-gray-500 p-8 text-black space-y-8">
+      <h1 className="text-xl font-bold text-black">StoreTrack</h1>
+      <div className="flex w-[25vh] justify-between border-2 border-gray-200 p-2 rounded-md mt-4 bg-white ">
+        <div className="flex justify-center items-center space-x-1">
+        <IoStorefront />
+        <span className="text-sm font-medium">OwnShop</span>
         </div>
-        <div className="space-y-4">
-          <span className="font-medium">MENU</span>
-          <div>
-            <ul className="space-y-4">
-              <li className="flex justify-start items-center space-x-2">
-                {" "}
-                <IoGrid /> <span>Overview</span>
-              </li>
-              <li className="flex justify-start items-center space-x-2">
-                {" "}
-                <ImStatsDots /> <span>Statistics</span>
-              </li>
-              <li className="flex justify-start items-center space-x-2">
-                {" "}
-                <BsPersonRolodex /> <span>Customers</span>
-              </li>
-              <li className="flex justify-start items-center space-x-2">
-                {" "}
-                <MdCategory /> <span>Products</span>
-              </li>
-              <li className="flex justify-start items-center space-x-2">
-                {" "}
-                <BiSolidMessageSquareDetail /> <span>Messages</span>
-              </li>
-              <li className="flex justify-start items-center space-x-2">
-                {" "}
-                <FaExchangeAlt /> <span>Transactions</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="w-full h-1 bg-white/5"></div>
-        <div className="space-y-4">
-          <span className="font-medium">GENERAL</span>
-          <ul className="space-y-2">
-            <li className="flex justify-start items-center space-x-2">
-              {" "}
-              <RiSettingsLine /> <span>Settings</span>
-            </li>
-            <li className="flex justify-start items-center space-x-2">
-              {" "}
-              <AiTwotoneSecurityScan /> <span>Security</span>
-            </li>
-          </ul>
-        </div>
+        <button><RiExpandUpDownLine /></button>
       </div>
-      <div className="flex items-center space-x-2 mt-auto">
-        <img
-          src={ownerImage}
-          className="w-10 h-10 rounded-full"
-          alt="Image store Owner"
-        />
-        <div className="flex flex-col">
-          <span className="font-medium">John Doe</span>
-          <span className="text-sm text-gray-300">John.Doe@gmail.com</span>
-        </div>
+      <div className="flex flex-col space-y-2 justify-start items-start">
+        <span className="text-sm">MENU</span>
+        <ul className="flex flex-col justify-start items-start">
+          <li className="flex justify-center items-center space-x-2 px-2 py-1 "><RiHome4Line size={20} /><span className="text-lg">Home</span></li>
+          <li className="flex justify-center items-center space-x-2 px-2 py-1 "><BsGrid size={20} /><span className="text-lg">Catalog</span></li>
+          <li className="flex justify-center items-center space-x-2 px-2 py-1 "><RiMoneyDollarCircleLine size={20} /><span className="text-lg">Finances</span></li>
+          <li className="flex justify-center items-center space-x-2 px-2 py-1 "><GrGroup size={20} /><span className="text-lg">Customers</span></li>
+          <li className="flex justify-center items-center space-x-2 px-2 py-1 "><TiPin size={20} /><span className="text-lg">Marketing</span></li>
+          <li className="flex justify-center items-center space-x-2 px-2 py-1 "><IoStatsChartOutline size={20} /><span className="text-lg">Analytics</span></li>
+        </ul>
       </div>
     </div>
   );
