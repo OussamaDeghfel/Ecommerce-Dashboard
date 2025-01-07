@@ -10,7 +10,7 @@ const PlanChoose = () => {
         <p className='text-lg'>Upgrade your plan to unlock advanced features</p>
         </div>
         <div className='flex space-x-3'>
-            <button className='flex space-x-1 border-2 shadow-md border-gray-300 bg-white py-1 px-2 rounded-md justify-center items-center'><span className='text-sm'>Select Plan</span> <FiArrowUpRight /> </button>
+            <button className='flex space-x-1 border-2 shadow-sm border-gray-300 bg-white py-1 px-2 rounded-md justify-center items-center'><span className='text-sm'>Select Plan</span> <FiArrowUpRight /> </button>
             <button> <CgClose size={20}/> </button>
         </div>
     </div>
