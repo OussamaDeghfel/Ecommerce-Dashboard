@@ -1,4 +1,4 @@
-
+import { Select } from "antd";
 import {
   LineChart,
   Line,
@@ -31,9 +31,16 @@ const Revenue = () => {
         {" "}
         <span className="text-xl font-medium">Revenue</span>{" "}
         <ul className="flex w-fit h-fit bg-gray-300 rounded-md">
-          <li className="p-2 px-4 cursor-pointer hover:bg-slate-600 hover:text-white">
-            Day
-          </li>
+          <Select
+          className="shadow-md rounded-md"
+            defaultValue="2025"
+            options={[
+              { value: "2025", label: <span>2025</span> },
+              { value: "2024", label: <span>2024</span> },
+              { value: "2023", label: <span>2023</span> },
+              { value: "2022", label: <span>2022</span> },
+            ]}
+          />
         </ul>
       </div>
       <div className="p-4 bg-gray-200 shadow-lg rounded-md border-2 border-gray-300 mt-2">
