@@ -12,10 +12,13 @@ import ownerImage from "../assets/ownerimage.webp";
 import { MdOutlineSettings } from "react-icons/md";
 import { BiLogOutCircle } from "react-icons/bi";
 import { Link } from "react-router";
+import { useState } from "react";
 
 const SideNavbar = () => {
+  const [activeItem, setActiveItem] = useState(0);
+
   const menuItems = [
-    { icon: RiHome4Line, text: "Home", active: true, path: "/" },
+    { icon: RiHome4Line, text: "Home", path: "/" },
     { icon: BsGrid, text: "Catalog", path: "/catalog" },
     { icon: RiMoneyDollarCircleLine, text: "Finances", path: "/finance" },
     { icon: GrGroup, text: "Customers", path: "/customers" },
@@ -44,11 +47,12 @@ const SideNavbar = () => {
                 <Link to={item.path}>
                   <li
                     key={index}
+                    onClick={() => setActiveItem(index)}
                     className={`
               group flex items-center
               p-2 rounded-md transition-all
               hover:bg-gray-100
-              ${item.active ? "bg-gray-200 border-2 border-gray-300" : ""}
+              ${activeItem == index ? "bg-gray-100 border-2 border-slate-300" : ""}
               text-sm md:text-base cursor-pointer
             `}
                   >
