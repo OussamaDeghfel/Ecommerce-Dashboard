@@ -11,15 +11,16 @@ import { TiPin } from "react-icons/ti";
 import ownerImage from "../assets/ownerimage.webp";
 import { MdOutlineSettings } from "react-icons/md";
 import { BiLogOutCircle } from "react-icons/bi";
+import { Link } from "react-router";
 
 const SideNavbar = () => {
   const menuItems = [
-    { icon: RiHome4Line, text: "Home", active: true },
-    { icon: BsGrid, text: "Catalog" },
-    { icon: RiMoneyDollarCircleLine, text: "Finances" },
-    { icon: GrGroup, text: "Customers" },
-    { icon: TiPin, text: "Marketing" },
-    { icon: IoStatsChartOutline, text: "Analytics" },
+    { icon: RiHome4Line, text: "Home", active: true, path: "/" },
+    { icon: BsGrid, text: "Catalog", path: "/catalog" },
+    { icon: RiMoneyDollarCircleLine, text: "Finances", path: "/finance" },
+    { icon: GrGroup, text: "Customers", path: "/customers" },
+    { icon: TiPin, text: "Marketing", path: "/marketing" },
+    { icon: IoStatsChartOutline, text: "Analytics", path: "/analytics" },
   ];
 
   return (
@@ -40,21 +41,23 @@ const SideNavbar = () => {
             <span className="text-sm">MENU</span>
             <ul className="flex flex-col w-full space-y-1">
               {menuItems.map((item, index) => (
-                <li
-                  key={index}
-                  className={`
+                <Link to={item.path}>
+                  <li
+                    key={index}
+                    className={`
               group flex items-center
               p-2 rounded-md transition-all
               hover:bg-gray-100
               ${item.active ? "bg-gray-200 border-2 border-gray-300" : ""}
               text-sm md:text-base cursor-pointer
             `}
-                >
-                  <item.icon className="w-5 h-5 md:w-6 md:h-6 text-gray-600" />
-                  <span className="ml-3 whitespace-nowrap overflow-hidden text-ellipsis">
-                    {item.text}
-                  </span>
-                </li>
+                  >
+                    <item.icon className="w-5 h-5 md:w-6 md:h-6 text-gray-600" />
+                    <span className="ml-3 whitespace-nowrap overflow-hidden text-ellipsis">
+                      {item.text}
+                    </span>
+                  </li>
+                </Link>
               ))}
             </ul>
           </nav>
