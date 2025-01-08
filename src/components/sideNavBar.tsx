@@ -27,7 +27,7 @@ const SideNavbar = () => {
   ];
 
   return (
-    <div className="flex flex-col w-[18%] h-screen bg-gray-300 border-r border-gray-500 px-4 py-8 text-black space-y-8">
+    <div className="flex flex-col w-[35vh] h-screen bg-gray-300 border-r border-gray-500 px-4 py-8 text-black space-y-8">
       <h1 className="text-xl font-bold text-black">StoreTrack</h1>
       <div className="h-full flex flex-col justify-between ">
         <div className="flex flex-col space-y-4">
@@ -40,7 +40,7 @@ const SideNavbar = () => {
               <RiExpandUpDownLine />
             </button>
           </div>
-          <nav className="flex  flex-col space-y-2 justify-start items-start">
+          <nav className="flex w-full flex-col space-y-2 justify-start items-start">
             <span className="text-sm">MENU</span>
             <ul className="flex flex-col w-full space-y-1">
               {menuItems.map((item, index) => (
