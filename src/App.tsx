@@ -1,5 +1,5 @@
 import SideNavbar from "./components/sideNavBar"
-import Dashboard from "./pages/overview/dashboard"
+import Dashboard from "./pages/home/dashboard"
 
 function App() {
 
