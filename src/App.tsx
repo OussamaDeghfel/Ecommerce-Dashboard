@@ -49,12 +49,13 @@ function App() {
       <BrowserRouter>
         <div className="flex">
           <SideNavbar />
-          {/* <Dashboard /> */}
-          <Routes>
-            {routesPages.map((page) => (
-              <Route key={page.key} path={page.path} element={page.element} />
-            ))}
-          </Routes>
+          <div className="w-full h-screen ">
+            <Routes>
+              {routesPages.map((page) => (
+                <Route key={page.key} path={page.path} element={page.element} />
+              ))}
+            </Routes>
+          </div>
         </div>
       </BrowserRouter>
     </>
