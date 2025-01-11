@@ -6,9 +6,8 @@ import { Route } from "react-router";
 import Dashboard from "./pages/home/dashboard";
 import Finances from "./pages/finances/finances";
 import Customers from "./pages/customers/customers";
-import Marketing from "./pages/marketing/marketing";
+
 import Analytics from "./pages/analytics/analytics";
-import Catalog from "./pages/catalog/catalog";
 
 function App() {
   const routesPages = [
@@ -19,26 +18,16 @@ function App() {
     },
     {
       key: 2,
-      path: "/catalog",
-      element: <Catalog />,
-    },
-    {
-      key: 3,
       path: "/finance",
       element: <Finances />,
     },
     {
-      key: 4,
+      key: 3,
       path: "/customers",
       element: <Customers />,
     },
     {
-      key: 5,
-      path: "/marketing",
-      element: <Marketing />,
-    },
-    {
-      key: 6,
+      key: 4,
       path: "/analytics",
       element: <Analytics />,
     },
