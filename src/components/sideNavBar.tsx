@@ -1,4 +1,3 @@
-import { BsGrid } from "react-icons/bs";
 import { GrGroup } from "react-icons/gr";
 import { IoStatsChartOutline, IoStorefront } from "react-icons/io5";
 import {
@@ -6,7 +5,6 @@ import {
   RiHome4Line,
   RiMoneyDollarCircleLine,
 } from "react-icons/ri";
-import { TiPin } from "react-icons/ti";
 
 import ownerImage from "../assets/ownerimage.webp";
 import { MdOutlineSettings } from "react-icons/md";
@@ -19,10 +17,8 @@ const SideNavbar = () => {
 
   const menuItems = [
     { icon: RiHome4Line, text: "Home", path: "/" },
-    { icon: BsGrid, text: "Catalog", path: "/catalog" },
     { icon: RiMoneyDollarCircleLine, text: "Finances", path: "/finance" },
     { icon: GrGroup, text: "Customers", path: "/customers" },
-    { icon: TiPin, text: "Marketing", path: "/marketing" },
     { icon: IoStatsChartOutline, text: "Analytics", path: "/analytics" },
   ];
 
@@ -66,17 +62,17 @@ const SideNavbar = () => {
             </ul>
           </nav>
         </div>
-        <div className="flex flex-col space-y-2 bg-gray-200 p-2 rounded-lg border-2 border-gray-300 shadow-sm">
+        <div className="w-full flex flex-col space-y-2 bg-gray-200 p-2 rounded-lg border-2 border-gray-300 shadow-sm">
           <div className="flex justify-start items-center space-x-2 border-b border-gray-300 py-2">
             <img
               src={ownerImage}
               alt="the image of the owner account "
-              className="w-10 h-10 rounded-lg"
+              className="w-8 h-8 rounded-lg"
             />
-            <div className="flex flex-col">
-              <span className="text-sm font-medium">Oussama Deghfel</span>
-              <span className="text-xs text-gray-500">oussama@gmail.com</span>
-            </div>
+            <address className="w-fit text-xs flex flex-col not-italic">
+              <p className="font-medium">Oussama Deghfel</p>
+              <span className="text-gray-500">oussama@gmail.com</span>
+            </address>
           </div>
           <div className="flex flex-col justify-start items-start space-y-3">
             <button className="flex justify-center items-center space-x-1">
