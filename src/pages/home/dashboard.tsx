@@ -3,7 +3,7 @@ import Performance from "./performance";
 import Revenue from "./revenue";
 // import AdditionDetails from "./additionDetails";
 import PlanChoose from "./planChoose";
-import { Modal } from "antd";
+import { Avatar, List, Modal } from "antd";
 import { useState } from "react";
 
 import { FaArrowRight } from "react-icons/fa6";
@@ -13,54 +13,112 @@ import menuser2 from "../../assets/menuser2.png";
 import womenuser from "../../assets/womenuser.svg";
 
 const Dashboard = () => {
+  // const activities = [
+  //   {
+  //     id: 1,
+  //     name: "David Elson",
+  //     action: "favorited your shop",
+  //     time: "6 mins ago",
+  //     image: menuser,
+  //     icon: "❤️",
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "Kurt Bates",
+  //     action: "purchased your product",
+  //     time: "16 mins ago",
+  //     image: menuser2,
+  //     icon: "🛒",
+  //   },
+  //   {
+  //     id: 3,
+  //     name: "Eddie Lake",
+  //     action: "favorited your shop",
+  //     time: "20 mins ago",
+  //     image: menuser,
+  //     icon: "❤️",
+  //   },
+  //   {
+  //     id: 4,
+  //     name: "Patricia Sanders",
+  //     action: "purchased your product",
+  //     time: "32 mins ago",
+  //     image: womenuser,
+  //     icon: "🛒",
+  //   },
+  // ];
+
+  const stats = {
+    totalProducts: 50,
+    activeListings: 20,
+    expiredListings: 10,
+    soldOutListings: 15,
+    totalCategories: 5,
+    averagePrice: 45.67,
+    highestPrice: 120,
+    lowestPrice: 10,
+    totalStockRemaining: 200,
+    totalRevenue: 5000,
+  };
+
   const activities = [
     {
       id: 1,
       name: "David Elson",
       action: "favorited your shop",
       time: "6 mins ago",
-      image: menuser,
-      icon: "❤️",
+      type: "favorite",
+      details: {
+        profilePicture: menuser,
+        interactions: 15,
+      },
     },
     {
       id: 2,
       name: "Kurt Bates",
       action: "purchased your product",
       time: "16 mins ago",
-      image: menuser2,
-      icon: "🛒",
+      type: "purchase",
+      details: {
+        profilePicture: womenuser,
+        productName: "Stylish Jacket",
+        quantity: 2,
+        totalPrice: 120,
+        purchaseDate: "2025-01-13 12:45 PM",
+        orderId: "ORD123456",
+      },
     },
     {
       id: 3,
       name: "Eddie Lake",
       action: "favorited your shop",
       time: "20 mins ago",
-      image: menuser,
-      icon: "❤️",
+      type: "favorite",
+      details: {
+        profilePicture: menuser2,
+        interactions: 10,
+      },
     },
     {
       id: 4,
       name: "Patricia Sanders",
       action: "purchased your product",
       time: "32 mins ago",
-      image: womenuser,
-      icon: "🛒",
+      type: "purchase",
+      details: {
+        profilePicture: menuser,
+        productName: "Classic T-Shirt",
+        quantity: 1,
+        totalPrice: 25,
+        purchaseDate: "2025-01-13 12:15 PM",
+        orderId: "ORD123457",
+      },
     },
   ];
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
-
-  const handleCancel = () => {
-    setIsModalOpen(false);
-  };
+  const [shopAdvisorActive, setShopAdvisorActive] = useState(false);
+  const [productsActive, setProductsActive] = useState(false);
+  const [activitiesActive, setActivitiesActive] = useState(false);
 
   return (
     <>
@@ -68,9 +126,9 @@ const Dashboard = () => {
         <div>
           <Modal
             title="Shop Advisor"
-            open={isModalOpen}
-            onOk={handleOk}
-            onCancel={handleCancel}
+            open={shopAdvisorActive}
+            onOk={() => setShopAdvisorActive(false)}
+            onCancel={() => setShopAdvisorActive(false)}
             footer={null}
           >
             <div className="space-y-3">
@@ -141,6 +199,144 @@ const Dashboard = () => {
               </div>
             </div>
           </Modal>
+          <Modal
+            title="Products"
+            open={productsActive}
+            onOk={() => setProductsActive(false)}
+            onCancel={() => setProductsActive(false)}
+            footer={null}
+          >
+            <div className="p-6 bg-gray-50 rounded-lg shadow-md">
+              <h2 className="text-2xl font-bold mb-4">
+                Store Product Statistics
+              </h2>
+              <ul className="grid grid-cols-2 gap-4">
+                <li className="bg-white p-4 rounded-lg shadow-sm">
+                  <span className="text-lg font-semibold">Total Products</span>
+                  <p className="text-2xl font-bold">{stats.totalProducts}</p>
+                </li>
+                <li className="bg-white p-4 rounded-lg shadow-sm">
+                  <span className="text-lg font-semibold">Active Listings</span>
+                  <p className="text-2xl font-bold">{stats.activeListings}</p>
+                </li>
+                <li className="bg-white p-4 rounded-lg shadow-sm">
+                  <span className="text-lg font-semibold">
+                    Expired Listings
+                  </span>
+                  <p className="text-2xl font-bold">{stats.expiredListings}</p>
+                </li>
+                <li className="bg-white p-4 rounded-lg shadow-sm">
+                  <span className="text-lg font-semibold">
+                    Sold Out Listings
+                  </span>
+                  <p className="text-2xl font-bold">{stats.soldOutListings}</p>
+                </li>
+                <li className="bg-white p-4 rounded-lg shadow-sm">
+                  <span className="text-lg font-semibold">
+                    Total Categories
+                  </span>
+                  <p className="text-2xl font-bold">{stats.totalCategories}</p>
+                </li>
+                <li className="bg-white p-4 rounded-lg shadow-sm">
+                  <span className="text-lg font-semibold">Average Price</span>
+                  <p className="text-2xl font-bold">
+                    ${stats.averagePrice.toFixed(2)}
+                  </p>
+                </li>
+                <li className="bg-white p-4 rounded-lg shadow-sm">
+                  <span className="text-lg font-semibold">Highest Price</span>
+                  <p className="text-2xl font-bold">${stats.highestPrice}</p>
+                </li>
+                <li className="bg-white p-4 rounded-lg shadow-sm">
+                  <span className="text-lg font-semibold">Lowest Price</span>
+                  <p className="text-2xl font-bold">${stats.lowestPrice}</p>
+                </li>
+                <li className="bg-white p-4 rounded-lg shadow-sm">
+                  <span className="text-lg font-semibold">
+                    Total Stock Remaining
+                  </span>
+                  <p className="text-2xl font-bold">
+                    {stats.totalStockRemaining}
+                  </p>
+                </li>
+                <li className="bg-white p-4 rounded-lg shadow-sm">
+                  <span className="text-lg font-semibold">Total Revenue</span>
+                  <p className="text-2xl font-bold">${stats.totalRevenue}</p>
+                </li>
+              </ul>
+            </div>
+          </Modal>
+          <Modal
+            title="Recent Activities"
+            open={activitiesActive}
+            onOk={() => setActivitiesActive(false)}
+            onCancel={() => setActivitiesActive(false)}
+            footer={null}
+          >
+            <List
+              dataSource={activities}
+              renderItem={(activity) => (
+                <List.Item
+                  key={activity.id}
+                  className="border-b border-gray-200 py-4"
+                >
+                  <List.Item.Meta
+                    avatar={
+                      <Avatar
+                        src={activity.details.profilePicture}
+                        alt={`${activity.name}'s profile`}
+                      />
+                    }
+                    title={
+                      <div className="flex justify-between">
+                        <span>
+                          <strong>{activity.name}</strong> {activity.action}
+                        </span>
+                        <span className="text-sm text-gray-500">
+                          {activity.time}
+                        </span>
+                      </div>
+                    }
+                    description={
+                      <div className="text-gray-700 text-sm">
+                        {activity.type === "favorite" ? (
+                          <>
+                            <p>
+                              <strong>Total Interactions:</strong>{" "}
+                              {activity.details.interactions}
+                            </p>
+                          </>
+                        ) : (
+                          <>
+                            <p>
+                              <strong>Product:</strong>{" "}
+                              {activity.details.productName}
+                            </p>
+                            <p>
+                              <strong>Quantity:</strong>{" "}
+                              {activity.details.quantity}
+                            </p>
+                            <p>
+                              <strong>Total Price:</strong> $
+                              {activity.details.totalPrice}
+                            </p>
+                            <p>
+                              <strong>Purchase Date:</strong>{" "}
+                              {activity.details.purchaseDate}
+                            </p>
+                            <p>
+                              <strong>Order ID:</strong>{" "}
+                              {activity.details.orderId}
+                            </p>
+                          </>
+                        )}
+                      </div>
+                    }
+                  />
+                </List.Item>
+              )}
+            />
+          </Modal>
         </div>
 
         <div className="flex justify-between items-center">
@@ -166,7 +362,7 @@ const Dashboard = () => {
                   <h1 className="text-2xl font-bold">Shop Advisor</h1>
                   <button
                     className="flex justify-center items-center space-x-2 bg-blue-200 hover:bg-blue-400 hover:text-white py-1 px-2 rounded-md"
-                    onClick={showModal}
+                    onClick={() => setShopAdvisorActive(true)}
                   >
                     <span>See All</span> <FaArrowRight />{" "}
                   </button>
@@ -198,7 +394,10 @@ const Dashboard = () => {
               <div className="space-y-4">
                 <div className="flex justify-between items-center">
                   <h1 className="text-2xl font-bold">Products</h1>
-                  <button className="flex justify-center items-center space-x-2 bg-blue-200 hover:bg-blue-400 hover:text-white py-1 px-2 rounded-md">
+                  <button
+                    className="flex justify-center items-center space-x-2 bg-blue-200 hover:bg-blue-400 hover:text-white py-1 px-2 rounded-md"
+                    onClick={() => setProductsActive(true)}
+                  >
                     <span>See All</span> <FaArrowRight />{" "}
                   </button>
                 </div>
@@ -226,18 +425,21 @@ const Dashboard = () => {
               <div className="space-y-4">
                 <div className="flex justify-between items-center">
                   <h1 className="text-2xl font-bold">Recent Activities</h1>
-                  <button className="flex justify-center items-center space-x-2 bg-blue-200 hover:bg-blue-400 hover:text-white py-1 px-2 rounded-md">
+                  <button
+                    className="flex justify-center items-center space-x-2 bg-blue-200 hover:bg-blue-400 hover:text-white py-1 px-2 rounded-md"
+                    onClick={() => setActivitiesActive(true)}
+                  >
                     <span>See All</span> <FaArrowRight />{" "}
                   </button>
                 </div>
                 <div className="flex flex-col border-2 border-gray-300 rounded-md p-5">
-                  {activities.map((activity) => (
+                  {activities.slice(0, 4).map((activity) => (
                     <div
                       key={activity.id}
                       className="flex items-center space-x-4 py-3 border-b border-gray-300"
                     >
                       <img
-                        src={activity.image}
+                        src={activity.details.profilePicture}
                         alt={activity.name}
                         className="w-10 h-10 rounded-full"
                       />
@@ -248,7 +450,7 @@ const Dashboard = () => {
                         </p>
                         <p className="text-xs text-gray-500">{activity.time}</p>
                       </div>
-                      <div className="text-lg">{activity.icon}</div>
+                      <div className="text-lg">{activity.type === "favorite" ? "❤️" : "🛒"}</div>
                     </div>
                   ))}
                 </div>
