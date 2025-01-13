@@ -67,15 +67,79 @@ const Dashboard = () => {
       <div className="w-full h-screen bg-gray-200 p-8 overflow-y-scroll space-y-6">
         <div>
           <Modal
-            title="Basic Modal"
+            title="Shop Advisor"
             open={isModalOpen}
             onOk={handleOk}
             onCancel={handleCancel}
             footer={null}
           >
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-            <p>Some contents...</p>
+            <div className="space-y-3">
+              <div className="flex flex-col border-2 border-gray-300 rounded-md p-5">
+                <div className="flex justify-center items-start space-x-4">
+                  <IoIosNotifications
+                    color="blue"
+                    className="bg-blue-200 p-2 rounded-lg"
+                    size={40}
+                  />
+                  <div className="flex flex-col space-y-2">
+                    <h3 className="font-medium">
+                      Optimize Your Product Listings
+                    </h3>
+                    <p className="text-sm text-gray-400">
+                      Learn how to improve your product visibility and increase
+                      sales
+                    </p>
+                  </div>
+                </div>
+                <div className="w-full flex justify-end">
+                  <button className="rounded-md px-2 py-1 shadow-md w-fit border-2 border-gray-300 cursor-pointer hover:bg-blue-200 hover:font-bold">
+                    View Tips
+                  </button>
+                </div>
+              </div>
+              <div className="flex flex-col border-2 border-gray-300 rounded-md p-5">
+                <div className="flex justify-center items-start space-x-4">
+                  <IoIosNotifications
+                    color="purple"
+                    className="bg-purple-200 p-2 rounded-lg"
+                    size={40}
+                  />
+                  <div className="flex flex-col space-y-2">
+                    <h3 className="font-medium">Customer Service Excellence</h3>
+                    <p className="text-sm text-gray-400">
+                      Discover best practices for handling customer inquiries
+                      and feedback
+                    </p>
+                  </div>
+                </div>
+                <div className="w-full flex justify-end">
+                  <button className="rounded-md px-2 py-1 shadow-md w-fit border-2 border-gray-300 cursor-pointer hover:bg-purple-200 hover:font-bold">
+                    Learn More
+                  </button>
+                </div>
+              </div>
+              <div className="flex flex-col border-2 border-gray-300 rounded-md p-5">
+                <div className="flex justify-center items-start space-x-4">
+                  <IoIosNotifications
+                    color="orange"
+                    className="bg-orange-200 p-2 rounded-lg"
+                    size={40}
+                  />
+                  <div className="flex flex-col space-y-2">
+                    <h3 className="font-medium">Marketing Strategies Guide</h3>
+                    <p className="text-sm text-gray-400">
+                      Explore effective marketing techniques to grow your online
+                      presence
+                    </p>
+                  </div>
+                </div>
+                <div className="w-full flex justify-end">
+                  <button className="rounded-md px-2 py-1 shadow-md w-fit border-2 border-gray-300 cursor-pointer hover:bg-orange-200 hover:font-bold">
+                    Explore
+                  </button>
+                </div>
+              </div>
+            </div>
           </Modal>
         </div>
 
@@ -100,7 +164,10 @@ const Dashboard = () => {
               <div className="space-y-4">
                 <div className="flex justify-between items-center">
                   <h1 className="text-2xl font-bold">Shop Advisor</h1>
-                  <button className="flex justify-center items-center space-x-2 bg-blue-200 hover:bg-blue-400 hover:text-white py-1 px-2 rounded-md" onClick={showModal}>
+                  <button
+                    className="flex justify-center items-center space-x-2 bg-blue-200 hover:bg-blue-400 hover:text-white py-1 px-2 rounded-md"
+                    onClick={showModal}
+                  >
                     <span>See All</span> <FaArrowRight />{" "}
                   </button>
                 </div>
