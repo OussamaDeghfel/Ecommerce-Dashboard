@@ -1,6 +1,10 @@
 import usa_flag from "../../assets/usa_flag.png";
 import euro_flag from "../../assets/euro_flag.png";
 import gbp_flag from "../../assets/gbp_flag.png";
+import visa from "../../assets/visa.png"
+import mastercard from "../../assets/mastercard.png"
+import paypal from "../../assets/paypal.png"
+
 import { LuArrowUpRight } from "react-icons/lu";
 import {
   CartesianGrid,
@@ -8,7 +12,7 @@ import {
   ResponsiveContainer,
   XAxis,
   Line,
-  Tooltip
+  Tooltip,
 } from "recharts";
 
 const Finances = () => {
@@ -27,8 +31,30 @@ const Finances = () => {
     { month: "Dec", assets: 86582 },
   ];
 
+  const assetsCardsBalance = [
+    {
+      cardType: visa,
+      cardNumber : "6132135151924875",
+      cardUser: "Oussama deghfel",
+      CardAmount: "$88,200.00"
+    },
+    {
+      cardType: mastercard,
+      cardNumber : "8457629531984215",
+      cardUser: "Oussama deghfel",
+      CardAmount: "$42,532.00"
+    },
+    {
+      cardType: paypal,
+      cardNumber : "7846543968127584",
+      cardUser: "Oussama deghfel",
+      CardAmount: "$65,548.25"
+    }
+
+  ]
+
   return (
-    <div className="w-full h-screen flex flex-col p-8 space-y-6">
+    <div className="w-full h-screen flex flex-col p-8 space-y-6 overflow-y-scroll">
       <h1 className="text-3xl font-bold">Finances</h1>
       <div className="flex justify-between items-center">
         <div className="flex flex-col space-y-2">
@@ -104,7 +130,7 @@ const Finances = () => {
           <div className="w-full h-full border-2 border-gray-400 p-2">
             <div>
               <div className="w-full flex justify-between items-center">
-                <h1 className="text-xl">Your Assets</h1>
+                <h1 className="text-2xl font-medium">Your Assets</h1>
 
                 <ul className="w-fit flex space-x-4 p-2 ">
                   <li>D</li>
@@ -131,6 +157,24 @@ const Finances = () => {
                   </LineChart>
                 </ResponsiveContainer>
               </div>
+            </div>
+            <div className="w-full h-fit flex flex-col p-2 space-y-2">
+              {assetsCardsBalance.map((card) => (
+                <div className="w-full flex justify-center items-center space-x-2 border-2 border-gray-400 p-2 rounded-md">
+                <img src={card.cardType} className="w-12 h-10 " alt="card image" />
+                <div className=" w-full flex justify-between items-center ">
+                  <div className="flex flex-col">
+                    <span className="text-lg font-bold">{(card.cardNumber).replace(/(.{4})/g, "$1 ")}</span>
+                    <span className="text-gray-500">{card.cardUser}</span>
+                  </div>
+                  <div className="flex flex-col items-end">
+                    <span className="text-lg font-bold">{card.CardAmount}</span>
+                    <span className="text-gray-500" >Account Balance</span>
+                  </div>
+                </div>
+              </div>
+              ))}
+              
             </div>
           </div>
         </div>
