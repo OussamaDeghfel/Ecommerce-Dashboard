@@ -2,8 +2,31 @@ import usa_flag from "../../assets/usa_flag.png";
 import euro_flag from "../../assets/euro_flag.png";
 import gbp_flag from "../../assets/gbp_flag.png";
 import { LuArrowUpRight } from "react-icons/lu";
+import {
+  CartesianGrid,
+  LineChart,
+  ResponsiveContainer,
+  XAxis,
+  Line,
+  Tooltip
+} from "recharts";
 
 const Finances = () => {
+  const assetsData = [
+    { month: "Jan", assets: 50210 },
+    { month: "Feb", assets: 70000 },
+    { month: "Mar", assets: 23500 },
+    { month: "Apr", assets: 34000 },
+    { month: "May", assets: 18050 },
+    { month: "Jun", assets: 40420 },
+    { month: "Jul", assets: 66000 },
+    { month: "Aug", assets: 35850 },
+    { month: "Sep", assets: 82000 },
+    { month: "Oct", assets: 64050 },
+    { month: "Nov", assets: 73021 },
+    { month: "Dec", assets: 86582 },
+  ];
+
   return (
     <div className="w-full h-screen flex flex-col p-8 space-y-6">
       <h1 className="text-3xl font-bold">Finances</h1>
@@ -51,7 +74,9 @@ const Finances = () => {
       </div>
 
       <div className="w-full h-full flex space-x-4">
+        {/* INCOME AND SPENDING && OWNER ASSETS */}
         <div className="w-[60%] h-full flex flex-col space-y-4">
+          {/* income and spending */}
           <div className="w-full flex space-x-4">
             <div className="w-full border-2 border-gray-400 rounded-md p-4 space-y-2">
               <div className="w-full flex justify-between items-center">
@@ -74,10 +99,45 @@ const Finances = () => {
               </div>
             </div>
           </div>
-          <div className="w-full h-full border-2 border-gray-400"> your assets</div>
+
+          {/* owner assets */}
+          <div className="w-full h-full border-2 border-gray-400 p-2">
+            <div>
+              <div className="w-full flex justify-between items-center">
+                <h1 className="text-xl">Your Assets</h1>
+
+                <ul className="w-fit flex space-x-4 p-2 ">
+                  <li>D</li>
+                  <li>W</li>
+                  <li>M</li>
+                  <li>Y</li>
+                  <li className="font-bold">ALL</li>
+                </ul>
+              </div>
+              <div className="w-full p-2">
+                <ResponsiveContainer width="100%" height={250}>
+                  <LineChart data={assetsData}>
+                    <CartesianGrid strokeDasharray="1 2" />
+                    <XAxis dataKey="month" />
+                    {/* <YAxis /> */}
+                    <Tooltip />
+                    <Line
+                      type="monotone"
+                      dataKey="assets"
+                      stroke="#898989"
+                      strokeWidth={2}
+                      dot={{ r: 4 }}
+                    />
+                  </LineChart>
+                </ResponsiveContainer>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div className="w-[40%] border-2 border-gray-400 rounded-md">latest transactions</div>
+        <div className="w-[40%] border-2 border-gray-400 rounded-md">
+          latest transactions
+        </div>
       </div>
     </div>
   );
