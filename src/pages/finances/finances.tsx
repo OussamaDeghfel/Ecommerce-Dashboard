@@ -1,9 +1,9 @@
 import usa_flag from "../../assets/usa_flag.png";
 import euro_flag from "../../assets/euro_flag.png";
 import gbp_flag from "../../assets/gbp_flag.png";
-import visa from "../../assets/visa.png"
-import mastercard from "../../assets/mastercard.png"
-import paypal from "../../assets/paypal.png"
+import visa from "../../assets/visa.png";
+import mastercard from "../../assets/mastercard.png";
+import paypal from "../../assets/paypal.png";
 
 import { LuArrowUpRight } from "react-icons/lu";
 import {
@@ -14,6 +14,7 @@ import {
   Line,
   Tooltip,
 } from "recharts";
+import { RiArrowUpDownFill } from "react-icons/ri";
 
 const Finances = () => {
   const assetsData = [
@@ -34,24 +35,92 @@ const Finances = () => {
   const assetsCardsBalance = [
     {
       cardType: visa,
-      cardNumber : "6132135151924875",
+      cardNumber: "6132135151924875",
       cardUser: "Oussama deghfel",
-      CardAmount: "$88,200.00"
+      CardAmount: "$88,200.00",
     },
     {
       cardType: mastercard,
-      cardNumber : "8457629531984215",
+      cardNumber: "8457629531984215",
       cardUser: "Oussama deghfel",
-      CardAmount: "$42,532.00"
+      CardAmount: "$42,532.00",
     },
     {
       cardType: paypal,
-      cardNumber : "7846543968127584",
+      cardNumber: "7846543968127584",
       cardUser: "Oussama deghfel",
-      CardAmount: "$65,548.25"
-    }
+      CardAmount: "$65,548.25",
+    },
+  ];
 
-  ]
+  const todayTransactions = [
+    {
+      title: "Buy online at Walmart.com",
+      amount: 8534.0,
+      date: "27 June",
+      time: "1:34 PM",
+      type: "online",
+    },
+    {
+      title: "Cash withdrawal by ATM",
+      amount: 10480.0,
+      date: "27 June",
+      time: "5:12 PM",
+      type: "cash",
+    },
+    {
+      title: "Payment for Income projets",
+      amount: 201.5,
+      date: "27 June",
+      time: "2:45 PM",
+      type: "income",
+    },
+    {
+      title: "Purchasing from Alibaba",
+      amount: 184.0,
+      date: "27 June",
+      time: "4:00 PM",
+      type: "cash",
+    },
+  ];
+
+  const last7DaysTransactions = [
+    {
+      title: "Grocery shopping at Target",
+      amount: 452.3,
+      date: "10 January",
+      time: "11:20 AM",
+      type: "online",
+    },
+    {
+      title: "Subscription payment for Netflix",
+      amount: 15.99,
+      date: "9 January",
+      time: "9:00 PM",
+      type: "cash",
+    },
+    {
+      title: "Dinner at Olive Garden",
+      amount: 84.5,
+      date: "8 January",
+      time: "7:45 PM",
+      type: "income",
+    },
+    {
+      title: "Electronics purchase at Best Buy",
+      amount: 1245.0,
+      date: "7 January",
+      time: "4:30 PM",
+      type: "cash",
+    },
+    {
+      title: "Book purchase from Amazon",
+      amount: 38.75,
+      date: "6 January",
+      time: "3:15 PM",
+      type: "income",
+    },
+  ];
 
   return (
     <div className="w-full h-screen flex flex-col p-8 space-y-6 overflow-y-scroll">
@@ -104,7 +173,7 @@ const Finances = () => {
         <div className="w-[60%] h-full flex flex-col space-y-4">
           {/* income and spending */}
           <div className="w-full flex space-x-4">
-            <div className="w-full border-2 border-gray-400 rounded-md p-4 space-y-2">
+            <div className="w-full border-2 border-gray-300 rounded-md p-4 space-y-2">
               <div className="w-full flex justify-between items-center">
                 <span>income</span> <LuArrowUpRight size={20} />{" "}
               </div>
@@ -114,7 +183,7 @@ const Finances = () => {
                 <span className="text-orange-400 font-bold">+10%</span>
               </div>
             </div>
-            <div className="w-full border-2 border-gray-400 rounded-md p-4 space-y-2">
+            <div className="w-full border-2 border-gray-300 rounded-md p-4 space-y-2">
               <div className="w-full flex justify-between items-center">
                 <span>spending</span> <LuArrowUpRight size={20} />{" "}
               </div>
@@ -127,7 +196,8 @@ const Finances = () => {
           </div>
 
           {/* owner assets */}
-          <div className="w-full h-full border-2 border-gray-400 p-2">
+          <div className="w-full h-fit border-2 border-gray-300 p-2 rounded-md">
+            {/* Chart  */}
             <div>
               <div className="w-full flex justify-between items-center">
                 <h1 className="text-2xl font-medium">Your Assets</h1>
@@ -158,29 +228,102 @@ const Finances = () => {
                 </ResponsiveContainer>
               </div>
             </div>
+
+            {/* Balance Cards  */}
             <div className="w-full h-fit flex flex-col p-2 space-y-2">
               {assetsCardsBalance.map((card) => (
-                <div className="w-full flex justify-center items-center space-x-2 border-2 border-gray-400 p-2 rounded-md">
-                <img src={card.cardType} className="w-12 h-10 " alt="card image" />
-                <div className=" w-full flex justify-between items-center ">
-                  <div className="flex flex-col">
-                    <span className="text-lg font-bold">{(card.cardNumber).replace(/(.{4})/g, "$1 ")}</span>
-                    <span className="text-gray-500">{card.cardUser}</span>
-                  </div>
-                  <div className="flex flex-col items-end">
-                    <span className="text-lg font-bold">{card.CardAmount}</span>
-                    <span className="text-gray-500" >Account Balance</span>
+                <div className="w-full flex justify-center items-center space-x-2 border-2 border-gray-300 p-2 rounded-md">
+                  <img
+                    src={card.cardType}
+                    className="w-12 h-10 "
+                    alt="card image"
+                  />
+                  <div className=" w-full flex justify-between items-center ">
+                    <div className="flex flex-col">
+                      <span className="text-lg font-bold">
+                        {card.cardNumber.replace(/(.{4})/g, "$1 ")}
+                      </span>
+                      <span className="text-gray-500">{card.cardUser}</span>
+                    </div>
+                    <div className="flex flex-col items-end">
+                      <span className="text-lg font-bold">
+                        {card.CardAmount}
+                      </span>
+                      <span className="text-gray-500">Account Balance</span>
+                    </div>
                   </div>
                 </div>
-              </div>
               ))}
-              
             </div>
           </div>
         </div>
 
-        <div className="w-[40%] border-2 border-gray-400 rounded-md">
-          latest transactions
+        {/* Latest Transactions  */}
+        <div className="w-[40%] h-screen border-2 border-gray-300 rounded-md py-3 p-2 space-y-2">
+          <div className="flex justify-between items-center">
+            <h1 className="text-xl font-bold">Latest transactions</h1>
+            <LuArrowUpRight size={20} />
+          </div>
+          <div>
+            <div className="space-y-2">
+              <h1 className="text-lg text-gray-500">Today</h1>
+              <div className="space-y-2">
+                {todayTransactions.map((transactions) => (
+                  <div className="w-full flex justify-center items-center space-x-2 border-2 border-gray-300 p-2 rounded-md">
+                    <div
+                      className={`rounded-full p-2 ${
+                        transactions.type === "online"
+                          ? "bg-green-300"
+                          : transactions.type === "cash"
+                          ? "bg-gray-200"
+                          : "bg-slate-500"
+                      }`}
+                    >
+                      <RiArrowUpDownFill size={18} />
+                    </div>
+                    <div className="w-full flex flex-col ">
+                      <div className="flex justify-between items-center font-medium">
+                        <span>{transactions.title}</span>
+                        <span>${transactions.amount}</span>
+                      </div>
+                      <span className="text-gray-500">
+                        {transactions.date}, {transactions.time}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="space-y-2">
+              <h1 className="text-lg text-gray-500">Last 7 days</h1>
+              <div className="space-y-2">
+                {last7DaysTransactions.map((transactions) => (
+                  <div className="w-full flex justify-center items-center space-x-2 border-2 border-gray-300 p-2 rounded-md">
+                    <div
+                      className={`rounded-full p-2 ${
+                        transactions.type === "online"
+                          ? "bg-green-300"
+                          : transactions.type === "cash"
+                          ? "bg-gray-200"
+                          : "bg-slate-500"
+                      }`}
+                    >
+                      <RiArrowUpDownFill size={18} />
+                    </div>
+                    <div className="w-full flex flex-col ">
+                      <div className="flex justify-between items-center font-medium">
+                        <span>{transactions.title}</span>
+                        <span>${transactions.amount}</span>
+                      </div>
+                      <span className="text-gray-500">
+                        {transactions.date}, {transactions.time}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
