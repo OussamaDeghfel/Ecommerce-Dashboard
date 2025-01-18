@@ -168,11 +168,11 @@ const Finances = () => {
         </div>
       </div>
 
-      <div className="w-full h-full flex space-x-4">
+      <div className="w-full h-screen flex space-x-4">
         {/* INCOME AND SPENDING && OWNER ASSETS */}
         <div className="w-[60%] h-full flex flex-col space-y-4">
           {/* income and spending */}
-          <div className="w-full flex space-x-4">
+          <div className="w-full h-fit flex space-x-4">
             <div className="w-full border-2 border-gray-300 rounded-md p-4 space-y-2">
               <div className="w-full flex justify-between items-center">
                 <span>income</span> <LuArrowUpRight size={20} />{" "}
@@ -196,7 +196,7 @@ const Finances = () => {
           </div>
 
           {/* owner assets */}
-          <div className="w-full h-fit border-2 border-gray-300 p-2 rounded-md">
+          <div className="w-full h-full border-2 border-gray-300 p-2 rounded-md">
             {/* Chart  */}
             <div>
               <div className="w-full flex justify-between items-center">
@@ -259,17 +259,17 @@ const Finances = () => {
         </div>
 
         {/* Latest Transactions  */}
-        <div className="w-[40%] h-screen border-2 border-gray-300 rounded-md py-3 p-2 space-y-2">
+        <div className="w-[40%] h-fit border-2 border-gray-300 rounded-md py-3 p-2 space-y-2">
           <div className="flex justify-between items-center">
             <h1 className="text-xl font-bold">Latest transactions</h1>
             <LuArrowUpRight size={20} />
           </div>
-          <div>
-            <div className="space-y-2">
+          <div className="flex flex-col w-full h-full space-y-2 border-2 border-red-500">
+            <div className="space-y-2 h-fit">
               <h1 className="text-lg text-gray-500">Today</h1>
-              <div className="space-y-2">
+              <div className="space-y-2 w-[98%] justify-center items-center mx-auto">
                 {todayTransactions.map((transactions) => (
-                  <div className="w-full flex justify-center items-center space-x-2 border-2 border-gray-300 p-2 rounded-md">
+                  <div className="w-full flex justify-center items-center space-x-2 border-b border-gray-300 p-2">
                     <div
                       className={`rounded-full p-2 ${
                         transactions.type === "online"
@@ -294,11 +294,12 @@ const Finances = () => {
                 ))}
               </div>
             </div>
-            <div className="space-y-2">
+
+            <div className="space-y-2 h-fit">
               <h1 className="text-lg text-gray-500">Last 7 days</h1>
-              <div className="space-y-2">
+              <div className="space-y-2 w-[98%] justify-center items-center mx-auto h-fit overflow-hidden">
                 {last7DaysTransactions.map((transactions) => (
-                  <div className="w-full flex justify-center items-center space-x-2 border-2 border-gray-300 p-2 rounded-md">
+                  <div className="w-full flex justify-center items-center space-x-2 border-b border-gray-300 p-2">
                     <div
                       className={`rounded-full p-2 ${
                         transactions.type === "online"
