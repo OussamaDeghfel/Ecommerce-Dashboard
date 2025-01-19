@@ -176,9 +176,9 @@ const Finances = () => {
         </div>
       </div>
 
-      <div className="w-full flex flex-col lg:flex-row gap-4 ">
+      <div className="w-full flex flex-col lg:flex-row gap-4">
         {/* INCOME AND SPENDING && OWNER ASSETS */}
-        <div className="w-full lg:w-[60%] flex flex-col space-y-4">
+        <div className="w-full lg:w-[60%] flex flex-col space-y-6">
           {/* income and spending */}
           <div className="w-full flex flex-col sm:flex-row gap-4">
             <div className="w-full border-2 border-gray-300 rounded-md p-4 space-y-2">
