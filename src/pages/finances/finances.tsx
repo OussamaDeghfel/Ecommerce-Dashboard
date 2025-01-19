@@ -15,6 +15,7 @@ import {
   Tooltip,
 } from "recharts";
 import { RiArrowUpDownFill } from "react-icons/ri";
+import { Select } from "antd";
 
 const Finances = () => {
   const assetsData = [
@@ -205,16 +206,17 @@ const Finances = () => {
           {/* owner assets */}
           <div className="w-full border-2 border-gray-300 p-2 rounded-md">
             <div className="w-full h-[60%] min-h-[300px]">
-              <div className="w-full flex justify-between items-center">
+                <div className="w-full flex justify-between items-center">
                 <h1 className="text-xl sm:text-2xl font-medium">Your Assets</h1>
-                <ul className="flex space-x-4 p-2 text-sm sm:text-base">
-                  <li>D</li>
-                  <li>W</li>
-                  <li>M</li>
-                  <li>Y</li>
-                  <li className="font-bold">ALL</li>
-                </ul>
-              </div>
+                <Select
+                  className="custom-select shadow-sm rounded-md"
+                  defaultValue="2025"
+                  options={[
+                  { value: "2025", label: <span>2025</span> },
+                  { value: "2024", label: <span>2024</span> },
+                  ]}
+                />
+                </div>
               <div className="w-full p-2">
                 <ResponsiveContainer width="100%" height={250}>
                   <LineChart data={assetsData}>

@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.custom-select .ant-select-selector {
+    background-color: #dfdfdf !important; /* Gray background */
+    color: #000 !important;              /* Text color */
+  }
+  
+  .custom-select .ant-select-arrow {
+    color: #000 !important; /* Arrow color */
+  }
+  

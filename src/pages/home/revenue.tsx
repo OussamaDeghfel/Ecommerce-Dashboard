@@ -32,13 +32,11 @@ const Revenue = () => {
         <span className="text-xl font-medium">Revenue</span>{" "}
         <ul className="flex w-fit h-fit bg-gray-300 rounded-md">
           <Select
-          className="shadow-md rounded-md"
+            className="custom-select shadow-sm rounded-md"
             defaultValue="2025"
             options={[
               { value: "2025", label: <span>2025</span> },
               { value: "2024", label: <span>2024</span> },
-              { value: "2023", label: <span>2023</span> },
-              { value: "2022", label: <span>2022</span> },
             ]}
           />
         </ul>
