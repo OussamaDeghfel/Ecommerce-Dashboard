@@ -51,6 +51,12 @@ const Finances = () => {
       cardUser: "Oussama deghfel",
       CardAmount: "$65,548.25",
     },
+    // {
+    //   cardType: mastercard,
+    //   cardNumber: "7846543968127584",
+    //   cardUser: "Oussama deghfel",
+    //   CardAmount: "$10,208.09",
+    // },
   ];
 
   const todayTransactions = [
@@ -123,86 +129,85 @@ const Finances = () => {
   ];
 
   return (
-    <div className="w-full h-screen flex flex-col p-8 space-y-6 overflow-y-scroll">
-      <h1 className="text-3xl font-bold">Finances</h1>
-      <div className="flex justify-between items-center">
+    <div className="w-full h-full flex flex-col px-2 sm:px-6 py-4 space-y-4 overflow-y-auto bg-gray-200">
+      <div className="w-full h-fit flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0">
         <div className="flex flex-col space-y-2">
-          <span className="text-5xl font-bold">$220,320.60</span>
-          <span>Total balance from all stores</span>
+          <span className="text-3xl sm:text-5xl font-bold">$220,320.60</span>
+          <span className="text-sm sm:text-base">
+            Total balance from all stores
+          </span>
         </div>
 
-        <div className="flex justify-center items-center space-x-4">
-          <div className="flex flex-col border-r border-gray-400 p-4">
+        <div className="flex flex-wrap justify-start md:justify-center items-center gap-4">
+          <div className="flex flex-col border-r border-gray-400 p-2 sm:p-4">
             <div className="flex items-center space-x-1">
               <img
                 src={usa_flag}
-                alt="euro dollar flag"
+                alt="usa dollar flag"
                 className="w-6 h-5 rounded-full"
               />
-              <span>USD</span>
+              <span className="text-sm sm:text-base">USD</span>
             </div>
-            <span className="text-2xl font-bold">$46,441.00</span>
+            <span className="text-xl sm:text-2xl font-bold">$46,441.00</span>
           </div>
-          <div className="flex flex-col border-r border-gray-400 p-4">
+          <div className="flex flex-col border-r border-gray-400 p-2 sm:p-4">
             <div className="flex items-center space-x-1">
               <img
                 src={euro_flag}
-                alt="euro dollar flag"
-                className="w-8 h-6 rounded-full"
+                alt="euro flag"
+                className="w-6 sm:w-8 h-5 sm:h-6 rounded-full"
               />
-              <span>EUR</span>
+              <span className="text-sm sm:text-base">EUR</span>
             </div>
-            <span className="text-2xl font-bold">€169,525.00</span>
+            <span className="text-xl sm:text-2xl font-bold">€169,525.00</span>
           </div>
-          <div className="flex flex-col p-4">
+          <div className="flex flex-col p-2 sm:p-4">
             <div className="flex items-center space-x-1">
               <img
                 src={gbp_flag}
-                alt="euro dollar flag"
-                className="w-6 h-6 rounded-full"
+                alt="gbp flag"
+                className="w-6 h-5 sm:h-6 rounded-full"
               />
-              <span>GBP</span>
+              <span className="text-sm sm:text-base">GBP</span>
             </div>
-            <span className="text-2xl font-bold">£7,845.00</span>
+            <span className="text-xl sm:text-2xl font-bold">£7,845.00</span>
           </div>
         </div>
       </div>
 
-      <div className="w-full h-screen flex space-x-4">
+      <div className="w-full flex flex-col lg:flex-row gap-4 ">
         {/* INCOME AND SPENDING && OWNER ASSETS */}
-        <div className="w-[60%] h-full flex flex-col space-y-4">
+        <div className="w-full lg:w-[60%] flex flex-col space-y-4">
           {/* income and spending */}
-          <div className="w-full h-fit flex space-x-4">
+          <div className="w-full flex flex-col sm:flex-row gap-4">
             <div className="w-full border-2 border-gray-300 rounded-md p-4 space-y-2">
               <div className="w-full flex justify-between items-center">
-                <span>income</span> <LuArrowUpRight size={20} />{" "}
+                <span>income</span> <LuArrowUpRight size={20} />
               </div>
-              <div className="text-3xl font-medium">$8,189.00</div>
-              <div className="w-full flex justify-between items-center">
-                <span>84 transactions</span>{" "}
+              <div className="text-2xl sm:text-3xl font-medium">$8,189.00</div>
+              <div className="w-full flex justify-between items-center text-sm sm:text-base">
+                <span>84 transactions</span>
                 <span className="text-orange-400 font-bold">+10%</span>
               </div>
             </div>
             <div className="w-full border-2 border-gray-300 rounded-md p-4 space-y-2">
               <div className="w-full flex justify-between items-center">
-                <span>spending</span> <LuArrowUpRight size={20} />{" "}
+                <span>spending</span> <LuArrowUpRight size={20} />
               </div>
-              <div className="text-3xl font-medium">$4,802,00</div>
-              <div className="w-full flex justify-between items-center">
-                <span>23 transactions</span>{" "}
+              <div className="text-2xl sm:text-3xl font-medium">$4,802,00</div>
+              <div className="w-full flex justify-between items-center text-sm sm:text-base">
+                <span>23 transactions</span>
                 <span className="text-orange-400 font-bold">+34%</span>
               </div>
             </div>
           </div>
 
           {/* owner assets */}
-          <div className="w-full h-full border-2 border-gray-300 p-2 rounded-md">
-            {/* Chart  */}
-            <div>
+          <div className="w-full border-2 border-gray-300 p-2 rounded-md">
+            <div className="w-full h-[60%] min-h-[300px]">
               <div className="w-full flex justify-between items-center">
-                <h1 className="text-2xl font-medium">Your Assets</h1>
-
-                <ul className="w-fit flex space-x-4 p-2 ">
+                <h1 className="text-xl sm:text-2xl font-medium">Your Assets</h1>
+                <ul className="flex space-x-4 p-2 text-sm sm:text-base">
                   <li>D</li>
                   <li>W</li>
                   <li>M</li>
@@ -215,7 +220,6 @@ const Finances = () => {
                   <LineChart data={assetsData}>
                     <CartesianGrid strokeDasharray="1 2" />
                     <XAxis dataKey="month" />
-                    {/* <YAxis /> */}
                     <Tooltip />
                     <Line
                       type="monotone"
@@ -229,27 +233,31 @@ const Finances = () => {
               </div>
             </div>
 
-            {/* Balance Cards  */}
-            <div className="w-full h-fit flex flex-col p-2 space-y-2">
+            {/* Balance Cards */}
+            <div className="w-full flex flex-col p-2 space-y-2">
               {assetsCardsBalance.map((card) => (
-                <div className="w-full flex justify-center items-center space-x-2 border-2 border-gray-300 p-2 rounded-md">
+                <div className="w-full flex justify-center items-center space-x-4 border-b border-gray-300 p-2 rounded-md last:border-b-0">
                   <img
                     src={card.cardType}
-                    className="w-12 h-10 "
+                    className="w-8 sm:w-10 h-6 sm:h-8"
                     alt="card image"
                   />
-                  <div className=" w-full flex justify-between items-center ">
+                  <div className="w-full flex justify-between items-center">
                     <div className="flex flex-col">
-                      <span className="text-lg font-bold">
+                      <span className="text-sm sm:text-md font-bold">
                         {card.cardNumber.replace(/(.{4})/g, "$1 ")}
                       </span>
-                      <span className="text-gray-500">{card.cardUser}</span>
+                      <span className="text-gray-500 text-xs sm:text-sm">
+                        {card.cardUser}
+                      </span>
                     </div>
                     <div className="flex flex-col items-end">
-                      <span className="text-lg font-bold">
+                      <span className="text-sm sm:text-md font-bold">
                         {card.CardAmount}
                       </span>
-                      <span className="text-gray-500">Account Balance</span>
+                      <span className="text-gray-500 text-xs sm:text-sm">
+                        Account Balance
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -258,18 +266,20 @@ const Finances = () => {
           </div>
         </div>
 
-        {/* Latest Transactions  */}
-        <div className="w-[40%] h-fit border-2 border-gray-300 rounded-md py-3 p-2 space-y-2">
-          <div className="flex justify-between items-center">
-            <h1 className="text-xl font-bold">Latest transactions</h1>
+        {/* Latest Transactions */}
+        <div className="w-full lg:w-[40%] border-2 border-gray-300 rounded-md py-3 p-2 space-y-2">
+          <div className="w-full flex justify-between items-center">
+            <h1 className="text-lg sm:text-xl font-bold">
+              Latest transactions
+            </h1>
             <LuArrowUpRight size={20} />
           </div>
-          <div className="flex flex-col w-full h-full space-y-2 border-2 border-red-500">
-            <div className="space-y-2 h-fit">
-              <h1 className="text-lg text-gray-500">Today</h1>
-              <div className="space-y-2 w-[98%] justify-center items-center mx-auto">
+          <div className="flex flex-col w-full">
+            <div className="space-y-2">
+              <h1 className="text-base sm:text-lg text-gray-500">Today</h1>
+              <div className="space-y-2 w-full sm:w-[98%] mx-auto">
                 {todayTransactions.map((transactions) => (
-                  <div className="w-full flex justify-center items-center space-x-2 border-b border-gray-300 p-2">
+                  <div className="w-full flex items-center space-x-2 border-b border-gray-300 p-2 last:border-b-0">
                     <div
                       className={`rounded-full p-2 ${
                         transactions.type === "online"
@@ -279,14 +289,14 @@ const Finances = () => {
                           : "bg-slate-500"
                       }`}
                     >
-                      <RiArrowUpDownFill size={18} />
+                      <RiArrowUpDownFill size={16} className="sm:size-18" />
                     </div>
-                    <div className="w-full flex flex-col ">
-                      <div className="flex justify-between items-center font-medium">
+                    <div className="w-full flex flex-col">
+                      <div className="flex justify-between items-center text-xs sm:text-sm font-medium">
                         <span>{transactions.title}</span>
                         <span>${transactions.amount}</span>
                       </div>
-                      <span className="text-gray-500">
+                      <span className="text-gray-500 text-xs">
                         {transactions.date}, {transactions.time}
                       </span>
                     </div>
@@ -295,11 +305,13 @@ const Finances = () => {
               </div>
             </div>
 
-            <div className="space-y-2 h-fit">
-              <h1 className="text-lg text-gray-500">Last 7 days</h1>
-              <div className="space-y-2 w-[98%] justify-center items-center mx-auto h-fit overflow-hidden">
+            <div className="space-y-2 mt-4">
+              <h1 className="text-base sm:text-lg text-gray-500">
+                Last 7 days
+              </h1>
+              <div className="space-y-2 w-full sm:w-[98%] mx-auto">
                 {last7DaysTransactions.map((transactions) => (
-                  <div className="w-full flex justify-center items-center space-x-2 border-b border-gray-300 p-2">
+                  <div className="w-full flex items-center space-x-2 border-b border-gray-300 p-2 last:border-b-0">
                     <div
                       className={`rounded-full p-2 ${
                         transactions.type === "online"
@@ -309,14 +321,14 @@ const Finances = () => {
                           : "bg-slate-500"
                       }`}
                     >
-                      <RiArrowUpDownFill size={18} />
+                      <RiArrowUpDownFill size={16} className="sm:size-18" />
                     </div>
-                    <div className="w-full flex flex-col ">
-                      <div className="flex justify-between items-center font-medium">
+                    <div className="w-full flex flex-col">
+                      <div className="flex justify-between items-center text-xs sm:text-sm font-medium">
                         <span>{transactions.title}</span>
                         <span>${transactions.amount}</span>
                       </div>
-                      <span className="text-gray-500">
+                      <span className="text-gray-500 text-xs">
                         {transactions.date}, {transactions.time}
                       </span>
                     </div>
