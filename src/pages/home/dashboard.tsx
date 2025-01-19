@@ -1,7 +1,6 @@
 import { CgWebsite } from "react-icons/cg";
 import Performance from "./performance";
 import Revenue from "./revenue";
-// import AdditionDetails from "./additionDetails";
 import PlanChoose from "./planChoose";
 import { Avatar, List, Modal } from "antd";
 import { useState } from "react";
